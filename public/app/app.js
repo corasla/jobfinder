@@ -3,7 +3,7 @@
 
     angular.module('app')
             .controller('TestCtrl', TestCtrl);
-            
+
     function TestCtrl() {
         var vm = this;
         vm.jobs = [];
@@ -24,6 +24,11 @@
                 {
                     title: 'Accountant',
                     description:'You will also do some stuff'
+                }
+                },
+                {
+                    title: 'Happy napper',
+                    description:'All you can nap, special edition'
                 }
             ];
         }
