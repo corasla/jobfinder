@@ -24,7 +24,6 @@
                 {
                     title: 'Accountant',
                     description:'You will also do some stuff'
-                }
                 },
                 {
                     title: 'Happy napper',
