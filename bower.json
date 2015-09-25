@@ -1,0 +1,14 @@
+{
+  "name": "TDD AngularJS",
+  "version": "0.0.0",
+  "description": "Job Finding App",
+  "authors": [
+    "Rzv"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.6",
+    "bootstrap": "~3.3.5"
+  }
+}
