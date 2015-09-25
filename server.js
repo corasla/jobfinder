@@ -12,11 +12,12 @@ app.get('*', function(req, res) {
     res.render('index');
 });
 
+/*
 mongoose.connect('mongodb://localhost/jobfinder');
 
 var con = mongoose.connection;
 con.once('open', function(){
     console.log("connected to mongodb successfully")
 });
-
+*/
 app.listen(process.env.PORT, process.env.IP);
