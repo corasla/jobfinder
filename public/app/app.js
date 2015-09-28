@@ -4,7 +4,8 @@
     angular.module('app')
             .controller('TestCtrl', TestCtrl);
 
-    function TestCtrl() {
+    TestCtrl.$inject = ['$scope', '$resource'];
+    function TestCtrl($scope, $resource) {
         var vm = this;
         vm.jobs = [];
 
@@ -16,20 +17,7 @@
             setBasicData();
         }
         function setBasicData() {
-            vm.jobs = [
-                {
-                    title: 'Sales Person',
-                    description:'You will do stuff'
-                },
-                {
-                    title: 'Accountant',
-                    description:'You will also do some stuff'
-                },
-                {
-                    title: 'Happy napper',
-                    description:'All you can nap, special edition'
-                }
-            ];
+            vm.jobs = $resource('api/jobs').query();
         }
 
     }
