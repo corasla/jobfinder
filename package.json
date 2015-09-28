@@ -9,11 +9,13 @@
   "author": "Rzv",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^2.10.1",
     "express": "^4.13.3",
     "jade": "^1.11.0",
     "mongoose": "^4.1.8"
   },
   "devDependencies": {
-    "bower": "^1.5.3"
+    "bower": "^1.5.3",
+    "chai": "^3.3.0"
   }
 }
