@@ -17,8 +17,8 @@ describe("get jobs", function(){
     var jobs;
 
     before(function(done){
-        jobsData.connectDB('mongodb://corasla:1234qwer@ds051943.mongolab.com:51943/jobfinder')
-        // jobsData.connectDB('mongodb://localhost/jobfinder')
+        // jobsData.connectDB('mongodb://corasla:1234qwer@ds051943.mongolab.com:51943/jobfinder')
+        jobsData.connectDB('mongodb://localhost/jobfinder')
             .then(resetJobs)
             .then(jobsData.seedJobs)
             .then(jobsData.findJobs)
