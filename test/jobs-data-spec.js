@@ -13,6 +13,7 @@ function resetJobs() {
 }
 
 describe("get jobs", function(){
+    this.timeout(5000);
     var jobs;
 
     before(function(done){
