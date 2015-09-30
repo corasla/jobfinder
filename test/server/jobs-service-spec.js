@@ -22,7 +22,7 @@ var db = {
     }
 };
     //get a reference to the jobs-service module and call it with the db mockup and app ('express') reference
-var jobService = require("../jobs-service")(db, app);
+var jobService = require("../../jobs-service")(db, app);
     //get jobs test
 describe("get jobs", function(){
     it("get should give me a json list of jobs", function(done){

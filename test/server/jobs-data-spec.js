@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
     //store a reference to the Promise framework bluebird
 var Promise = require('bluebird');
     //store a reference to the jobsData module
-var jobsData = require('../jobs-data.js');
+var jobsData = require('../../jobs-data.js');
 
     //remove all entries from the DB via mongoose
 function resetJobs() {

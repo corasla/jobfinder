@@ -9,10 +9,10 @@ describe("posting jobs", function(){
         $httpBackend.whenPOST('/api/jobs', function(data){
             postRequestJob = JSON.parse(data);
             expect(postRequestJob).to.not.be.empty;
-            console.log(postRequestJob);
+            expect(postRequestJob.title).to.not.be.empty;
+            expect(postRequestJob.description).to.not.be.empty;
             return true;
         }).respond(200);
-
         jobs.save(newJob);
         $httpBackend.flush();
     }));
