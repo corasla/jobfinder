@@ -8,8 +8,16 @@ script(type='text/javascript', src='/app/jobs.js')
 
 body(data-ng-app='app')
     .container
-        h1 Find a Job Today!
         div(data-ng-controller='TestCtrl as tc')
+            h1 Post a New job
+            form(data-ng-submit="tc.submit()")
+                .form-group
+                    input.form-control(placeholder="Title" data-ng-model="tc.title")
+                .form-group
+                    textarea.form-control(placeholder="Description" data-ng-model="tc.description")
+                .form-group
+                    button.btn.btn-primary(type="submit") Post
+            h1 Find a Job Today!
             .list-group
                 a.list-group-item(href='#')(data-ng-repeat='job in tc.jobs')
                     h4.list-group-item-heading {{job.title}}

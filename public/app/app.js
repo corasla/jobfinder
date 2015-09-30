@@ -10,27 +10,31 @@
         var vm = this;
             //instantiate our bindable jobs variable
         vm.jobs = [];
-
+        vm.submit = submitData;
+        
         activate();
 
             //init function to set up variables
         function activate() {
                 //TO DO: maybe do some other stuff as well
             setBasicData();
-            saveJobsData();
         }
-
 
         function setBasicData() {
                 //get jobs data from our api (do a simple query that in exchange return the data)
             vm.jobs = $resource('api/jobs').query();
         }
 
-        function saveJobsData(){
-            var jobsObject = {  title: 'App test title',
-                           description: 'App test description'};
-            jobs.save(jobsObject);
+        function submitData() {
+            var newJobObject = {title: vm.title, description: vm.description};
+            jobs.save(newJobObject);
+            vm.jobs.push(newJobObject)
+            flushInputs();
         }
 
+        function flushInputs() {
+            vm.title = "";
+            vm.description = "";
+        }
     }
 }());

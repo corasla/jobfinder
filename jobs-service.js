@@ -11,6 +11,7 @@ module.exports = function(db, app){
             res.send(collection);
         });
     });
+
         //post jobs
     app.post('/api/jobs', function(req, res){
         db.saveJob(req.body);
