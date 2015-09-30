@@ -27,8 +27,8 @@
         }
 
         function saveJobsData(){
-            var jobsObject = {  title: 'test title',
-                           description: 'test description'};
+            var jobsObject = {  title: 'App test title',
+                           description: 'App test description'};
             jobs.save(jobsObject);
         }
 

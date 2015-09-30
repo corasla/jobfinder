@@ -7,6 +7,8 @@ var Promise = require('bluebird');
     //store a reference to the jobsData module
 var jobsData = require('../../jobs-data.js');
 
+var DB_ADDRESS = 'mongodb://corasla:1234qwer@ds051943.mongolab.com:51943/jobfinder';
+
     //remove all entries from the DB via mongoose
 function resetJobs() {
     return new Promise(function(resolve, reject){
@@ -17,13 +19,13 @@ function resetJobs() {
     //localDB
 //jobsData.connectDB('mongodb://localhost/jobfinder')
     //our get jobs test
-describe("get jobs", function(){
+describe("db get jobs", function(){
     var jobs;
         //go through the necessary steps and reset jobs, then repopulate jobs
         //from the jobsData module
         //then find and store all of the newly insterted jobs inside the jobs object
     before(function(done){
-        jobsData.connectDB('mongodb://corasla:1234qwer@ds051943.mongolab.com:51943/jobfinder')
+        jobsData.connectDB(DB_ADDRESS)
             .then(resetJobs)
             .then(jobsData.seedJobs)
             .then(jobsData.findJobs)
@@ -32,6 +34,9 @@ describe("get jobs", function(){
                 done();
             });
     });
+    after(function(){
+        mongoose.connection.close();
+    })
         //self explanatory
     it("should never be empty since jobs are seeded", function(){
         expect(jobs.length).to.be.at.least(1);
@@ -43,5 +48,32 @@ describe("get jobs", function(){
 
     it("should have a job with a description", function(){
         expect(jobs[0].description).to.not.be.empty;
+    });
+});
+
+
+describe("db save jobs", function(){
+    console.log("db saved jobs");
+    var job = { title: 'Cook',
+                description: 'You will be making bagels.'};
+    var jobs;
+
+    before(function(done){
+        jobsData.connectDB(DB_ADDRESS)
+            .then(resetJobs)
+            .then(function() {return jobsData.saveJob(job)})
+            .then(jobsData.findJobs)
+            .then(function setJobs(collection){
+                jobs = collection;
+                done();
+            });
+    });
+
+    after(function(){
+        mongoose.connection.close();
+    })
+        //self explanatory
+    it("should have one job after saving one job", function(){
+        expect(jobs).to.have.length(1);
     });
 });

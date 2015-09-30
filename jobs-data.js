@@ -3,9 +3,12 @@ var Promise = require('bluebird');
 var jobRefRequirement = require('./model/Job.js');
 var Job = mongoose.model('Job');
 
+var createJob = Promise.promisify(Job.create, Job);
+
 var findJobs = function(query){
     return Promise.cast(Job.find(query).exec());
 };
+
 var jobs = [
     {title:'Supervisor cook 1', description:'No 1 is the supervisor'},
     {title:'Employee 2', description:'You 2 do the cooking'},
@@ -18,8 +21,7 @@ var jobs = [
 
 exports.findJobs = findJobs;
 exports.connectDB = Promise.promisify(mongoose.connect, mongoose);
-
-var createJob = Promise.promisify(Job.create, Job);
+exports.saveJob = createJob;
 exports.seedJobs = function(){
         return findJobs({}).then(function(collection){
             if(collection.length === 0)
