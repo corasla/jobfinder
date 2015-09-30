@@ -13,17 +13,17 @@
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
     "jade": "^1.11.0",
-    "karma": "^0.13.10",
-    "karma-chai": "^0.1.0",
-    "karma-mocha": "^0.2.0",
-    "mocha": "^2.3.3",
-    "mongoose": "^4.1.8",
-    "supertest": "^1.1.0"
+    "mongoose": "^4.1.8"
   },
   "devDependencies": {
     "bower": "^1.5.3",
     "chai": "^3.3.0",
     "karma-chrome-launcher": "^0.2.0",
-    "mongodb-core": "^1.2.14"
+    "mongodb-core": "^1.2.14",
+    "supertest": "^1.1.0",
+    "karma": "^0.13.10",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.2.0",
+    "mocha": "^2.3.3"
   }
 }

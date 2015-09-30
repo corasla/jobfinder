@@ -31,12 +31,13 @@ describe("db get jobs", function(){
             .then(jobsData.findJobs)
             .then(function(collection){
                 jobs = collection;
+                mongoose.connection.close();
                 done();
             });
     });
-    after(function(){
-        mongoose.connection.close();
-    })
+    // after(function(){
+
+    // })
         //self explanatory
     it("should never be empty since jobs are seeded", function(){
         expect(jobs.length).to.be.at.least(1);
@@ -65,13 +66,13 @@ describe("db save jobs", function(){
             .then(jobsData.findJobs)
             .then(function setJobs(collection){
                 jobs = collection;
+                mongoose.connection.close();
                 done();
             });
     });
+    // after(function(){
 
-    after(function(){
-        mongoose.connection.close();
-    })
+    // })
         //self explanatory
     it("should have one job after saving one job", function(){
         expect(jobs).to.have.length(1);
