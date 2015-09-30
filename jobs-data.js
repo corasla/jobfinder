@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Promise = require('bluebird');
-
+var jobRefRequirement = require('./model/Job.js');
 var Job = mongoose.model('Job');
 
 var findJobs = function(query){
