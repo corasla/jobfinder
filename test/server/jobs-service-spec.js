@@ -36,13 +36,27 @@ describe("get jobs", function(){
 })
     //save jobs test
 describe("save jobs", function(){
-    it("should validate that title is greater than 4 characters");
-    it("should validate that title is less than 40 characters");
-    it("should validate that description is greater than 4 characters");
-    it("should validate that description is less than 250 characters");
-
         //a simple mockup of a new job object
     var newJob = {title:'Supervisor cook 1', description:'No 1 is the supervisor'};
+
+    it("should validate that title is greater than 4 characters", function(done){
+        expect(newJob.title).to.have.length.above(4);
+        done();
+    });
+
+    it("should validate that title is less than 40 characters", function(done){
+        expect(newJob.title).to.have.length.below(40);
+        done();
+    });
+    it("should validate that description is greater than 4 characters", function(done){
+        expect(newJob.description).to.have.length.above(4);
+        done();
+    });
+    it("should validate that description is less than 250 characters", function(done){
+        expect(newJob.description).to.have.length.above(4);
+        done();
+    });
+
     it("should pass the job to the database save", function(done){
         request(app).post('/api/jobs').send(newJob).end(function(err, res){
             expect(dataSavedJob).to.deep.equal(newJob);
